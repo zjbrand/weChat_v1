@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ユーザー新規 | WeChat</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: #1f2937;
+      font-family: "Segoe UI", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      background: linear-gradient(135deg, #ecfdf5 0%, #f8fafc 46%, #eef2ff 100%);
+    }
+    .app { width: min(920px, calc(100% - 32px)); margin: 36px auto; }
+    .panel {
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, .22);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .92);
+      box-shadow: 0 18px 60px rgba(15, 23, 42, .12);
+    }
+    .header {
+      position: relative;
+      min-height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 28px 32px;
+      color: white;
+      background:
+        radial-gradient(circle at 14% 74%, #d8edf4 0 20px, transparent 21px),
+        radial-gradient(circle at 14% 74%, #a87b32 0 84px, transparent 85px),
+        radial-gradient(circle at 33% 76%, #d8edf4 0 18px, transparent 19px),
+        radial-gradient(circle at 33% 76%, #d3b472 0 60px, transparent 61px),
+        linear-gradient(90deg, transparent 0 48%, #c8172a 48% 62%, transparent 62%),
+        linear-gradient(90deg, transparent 0 64%, #0b0b0b 64% 73%, transparent 73%),
+        linear-gradient(90deg, transparent 0 77%, #ffd5dc 77% 84%, #58a9d6 84% 88%, transparent 88%),
+        linear-gradient(90deg, transparent 0 92%, #0c8bbd 92% 99%, transparent 99%),
+        radial-gradient(circle at 8% 15%, transparent 0 9px, rgba(121, 183, 203, .45) 10px 15px, transparent 16px),
+        radial-gradient(circle at 24% 14%, transparent 0 9px, rgba(121, 183, 203, .45) 10px 15px, transparent 16px),
+        radial-gradient(circle at 48% 14%, transparent 0 9px, rgba(121, 183, 203, .45) 10px 15px, transparent 16px),
+        radial-gradient(circle at 72% 14%, transparent 0 9px, rgba(121, 183, 203, .45) 10px 15px, transparent 16px),
+        #d8edf4;
+    }
+    h1 {
+      position: relative;
+      margin: 0;
+      width: fit-content;
+      padding: 12px 18px;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 0;
+      background: rgba(5, 95, 82, .82);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, .18);
+    }
+    .content { padding: 30px 32px 34px; }
+    .form { display: grid; gap: 18px; max-width: 460px; }
+    label {
+      display: grid;
+      gap: 8px;
+      color: #475569;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    input {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 0 14px;
+      color: #0f172a;
+      font: inherit;
+      background: #fff;
+      outline: none;
+      transition: border-color .18s, box-shadow .18s;
+    }
+    input:focus { border-color: #10b981; box-shadow: 0 0 0 4px rgba(16, 185, 129, .14); }
+    input[type="submit"] {
+      width: fit-content;
+      min-width: 120px;
+      border: 0;
+      color: white;
+      font-weight: 800;
+      cursor: pointer;
+      background: #059669;
+      box-shadow: 0 10px 24px rgba(5, 150, 105, .24);
+    }
+    input[type="submit"]:hover { background: #047857; }
+    @media (max-width: 640px) {
+      .app { width: min(100% - 20px, 920px); margin: 18px auto; }
+      .header, .content { padding: 22px; }
+      h1 { font-size: 24px; }
+      input[type="submit"] { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <section class="panel">
+      <div class="header">
+        <h1>ユーザー新規</h1>
+      </div>
+      <div class="content">
+        <form class="form" action="/weChat_v1/Add" method="post">
+          <label>
+            メールアドレス
+            <input type="email" name="email" id="email">
+          </label>
+          <label>
+            パスワード
+            <input type="password" name="password" id="password">
+          </label>
+          <label>
+            パスワード確認
+            <input type="password" name="password_confirm" id="password_confirm">
+          </label>
+          <input type="submit" value="登録" id="register">
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

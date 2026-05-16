@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マイページ | WeChat</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="my.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: #1f2937;
+      font-family: "Segoe UI", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      background: linear-gradient(135deg, #ecfdf5 0%, #f8fafc 46%, #eef2ff 100%);
+    }
+    .app { width: min(920px, calc(100% - 32px)); margin: 36px auto; }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .nav a {
+      color: #047857;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 10px 14px;
+      border: 1px solid rgba(4, 120, 87, .18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .74);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, .06);
+    }
+    .panel {
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, .22);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .92);
+      box-shadow: 0 18px 60px rgba(15, 23, 42, .12);
+    }
+    .header {
+      position: relative;
+      min-height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 28px 32px;
+      color: white;
+      background:
+        radial-gradient(circle at 14% 74%, #d8edf4 0 20px, transparent 21px),
+        radial-gradient(circle at 14% 74%, #a87b32 0 84px, transparent 85px),
+        radial-gradient(circle at 33% 76%, #d8edf4 0 18px, transparent 19px),
+        radial-gradient(circle at 33% 76%, #d3b472 0 60px, transparent 61px),
+        linear-gradient(90deg, transparent 0 48%, #c8172a 48% 62%, transparent 62%),
+        linear-gradient(90deg, transparent 0 64%, #0b0b0b 64% 73%, transparent 73%),
+        linear-gradient(90deg, transparent 0 77%, #ffd5dc 77% 84%, #58a9d6 84% 88%, transparent 88%),
+        linear-gradient(90deg, transparent 0 92%, #0c8bbd 92% 99%, transparent 99%),
+        radial-gradient(circle at 8% 15%, transparent 0 9px, rgba(121, 183, 203, .45) 10px 15px, transparent 16px),
+        radial-gradient(circle at 24% 14%, transparent 0 9px, rgba(121, 183, 203, .45) 10px 15px, transparent 16px),
+        radial-gradient(circle at 48% 14%, transparent 0 9px, rgba(121, 183, 203, .45) 10px 15px, transparent 16px),
+        radial-gradient(circle at 72% 14%, transparent 0 9px, rgba(121, 183, 203, .45) 10px 15px, transparent 16px),
+        #d8edf4;
+    }
+    h1 {
+      position: relative;
+      margin: 0;
+      width: fit-content;
+      padding: 12px 18px;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 0;
+      background: rgba(5, 95, 82, .82);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, .18);
+    }
+    .content { padding: 30px 32px 34px; }
+    .form { display: grid; gap: 18px; max-width: 460px; }
+    label {
+      display: grid;
+      gap: 8px;
+      color: #475569;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    input {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 0 14px;
+      color: #0f172a;
+      font: inherit;
+      background: #fff;
+      outline: none;
+      transition: border-color .18s, box-shadow .18s;
+    }
+    input:focus { border-color: #10b981; box-shadow: 0 0 0 4px rgba(16, 185, 129, .14); }
+    input[type="button"] {
+      width: fit-content;
+      min-width: 120px;
+      border: 0;
+      color: white;
+      font-weight: 800;
+      cursor: pointer;
+      background: #059669;
+      box-shadow: 0 10px 24px rgba(5, 150, 105, .24);
+    }
+    input[type="button"]:hover { background: #047857; }
+    #res {
+      display: block;
+      margin-top: 18px;
+      color: #047857;
+      font-weight: 700;
+      line-height: 1.7;
+    }
+    @media (max-width: 640px) {
+      .app { width: min(100% - 20px, 920px); margin: 18px auto; }
+      .header, .content { padding: 22px; }
+      h1 { font-size: 24px; }
+      input[type="button"] { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <nav class="nav">
+      <a href="my.html">マイページ</a>
+      <a href="sh.html">友達検索</a>
+      <a href="friends.html">友達一覧</a>
+      <a href="login.html">ログイン</a>
+      <a href="friendgroup.html">友達グループに公開</a>
+    </nav>
+
+    <section class="panel">
+      <div class="header">
+        <h1>マイページ</h1>
+      </div>
+      <div class="content">
+        <div class="form">
+          <label>
+            メールアドレス
+            <input type="email" name="new_email" id="email">
+          </label>
+          <label>
+            パスワード
+            <input type="password" name="new_password" id="password">
+          </label>
+          <input type="button" value="保存" id="save" onclick="save()">
+        </div>
+        <span id="res"></span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
