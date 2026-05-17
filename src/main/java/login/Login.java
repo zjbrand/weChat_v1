@@ -43,9 +43,9 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.setContentType("text/html;charset=UTF-8");
-
+		//パラメータを取得
 		String email = request.getParameter("email");
-
+		
 		String password = request.getParameter("password");
 
 		//System.out.println(email + "|" + password);
