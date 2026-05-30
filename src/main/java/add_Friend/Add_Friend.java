@@ -52,7 +52,7 @@ public class Add_Friend extends HttpServlet {
 
 		try {
 
-			Class.forName("com.mysql.jdbc.Driver");
+			//Class.forName("com.mysql.jdbc.Driver");
 
 			Connection conn = DBUtil.getConnection();
 

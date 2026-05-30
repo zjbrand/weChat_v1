@@ -2,9 +2,10 @@ package my;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+
+import com.util.DBUtil;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -50,16 +51,17 @@ public class My extends HttpServlet {
 		System.out.println(email);
 		
 
-		String url = "jdbc:mysql://localhost/wechat_v1";
+		/*String url = "jdbc:mysql://localhost/wechat_v1";
 		String user = "root";
-		String passwordConnect = "123456";
+		String passwordConnect = "123456";*/
 
 		String msg = "";
 
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			//Class.forName("com.mysql.cj.jdbc.Driver");
 
-			Connection conn = DriverManager.getConnection(url, user, passwordConnect);
+			//Connection conn = DriverManager.getConnection(url, user, passwordConnect);
+			Connection conn = DBUtil.getConnection();
 
 			String sql = "select `email`,`password` from `user_v1` "
 					+ "where email='" + email + "'";
